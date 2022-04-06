@@ -1,0 +1,23 @@
+{
+  "name": "json_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "startSeverLog": "json-server --watch db.json",
+    "dev": "nodemon index.js",
+    "start": "npm run generate-data && node index.js",
+    "generate-data": "node generate-data.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.1.1",
+    "faker": "^6.6.6",
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:4000/api
+@resourceName=courses
+
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+   "name": "Công" 
+}
+
+###
+
+# @name update
+PATCH {{baseUrl}}/{{resourceName}}/5
+Content-Type: application/json
+
+{
+   "name": "Công",
+   "description": "Handsome"
+}
+
+###
+
+# @name remove
+DELETE {{baseUrl}}/{{resourceName}}/6
+Content-Type: application/json
+
+{
+   "name": "Công" 
+}
