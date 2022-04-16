@@ -2,7 +2,7 @@ const { faker } = require('@faker-js/faker');
 const fs = require('fs');
 
 // Set locale to use Vietnamese
-faker.locale = 'vi';
+faker.setLocale('vi');
 
 // Random data
 
@@ -67,19 +67,41 @@ const randomLocation = (n) => {
     return locationList;
 }
 
+// location
+const randomCountry = (n) => {
+    if(n<=0) return [];
+
+    const countryList = []
+
+    Array.from(new Array(n)).forEach(() => {
+        const country = {
+            id: faker.datatype.uuid(),
+            name: faker.address.country(),
+            number: faker.datatype.number({max: 100, min:11}),
+            phoneFormats: faker.phone.phoneFormats()
+        }
+
+        countryList.push(country)
+    })
+
+    return countryList;
+}
+
 
 // IFFE
 (() => {
     // random data
     const courseList = randomCourseList(4)
     const studentList = randomStudentList(courseList, 20)
-    const locationList = randomLocation(1000)
+    const locationList = randomLocation(3000)
+    const countriesList = randomCountry(50)
 
     // prepare DB object
     const db = {
         courses: courseList,
         students: studentList,
         locations: locationList,
+        countries: countriesList,
         profileHost: {
             name: "Công",
         },
